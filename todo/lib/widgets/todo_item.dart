@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:todo/constants/colors.dart';
+import '../constants/colors.dart';
+import '../model/todo.dart';
 
 class ToDoItem extends StatelessWidget {
-  const ToDoItem({super.key});
+  final ToDo todo;
+  const ToDoItem({Key? key, required this.todo}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
+      margin: EdgeInsets.only(bottom: 20),
       child: ListTile(
         onTap: () {
           print('CLick on todo Item.');
@@ -20,15 +23,15 @@ class ToDoItem extends StatelessWidget {
         ),
         tileColor: Colors.white,
         leading: Icon(
-          Icons.check_box,
+          todo.isDone ? Icons.check_box : Icons.check_box_outline_blank,
           color: tdBlue,
         ),
         title: Text(
-          'Check Mail',
+          todo.todoText!,
           style: TextStyle(
             fontSize: 16,
             color: tdBlack,
-            decoration: TextDecoration.lineThrough,
+            decoration: todo.isDone ? TextDecoration.lineThrough : null,
           ),
         ),
         trailing: Container(
