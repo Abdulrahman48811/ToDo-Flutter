@@ -13,7 +13,7 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   final todosList = ToDo.todoList();
-
+  final _todoController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,10 +41,9 @@ class _HomeState extends State<Home> {
                       ),
                       for (ToDo todo in todosList)
                         ToDoItem(
-                          todo: todo,
-                          onToDoChanged: _handleToDoChange,
-                          onDeleteItem: () {},
-                        ),
+                            todo: todo,
+                            onToDoChanged: _handleToDoChange,
+                            onDeleteItem: _deletToDoItem),
                     ],
                   ),
                 ),
@@ -113,6 +112,12 @@ class _HomeState extends State<Home> {
   void _handleToDoChange(ToDo todo) {
     setState(() {
       todo.isDone = !todo.isDone;
+    });
+  }
+
+  void _deletToDoItem(String id) {
+    setState(() {
+      todosList.removeWhere((item) => item.id == id);
     });
   }
 
