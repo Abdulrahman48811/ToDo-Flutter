@@ -14,20 +14,14 @@ class ToDo {
       ToDo(id: '01', todoText: 'Morning Excercise', isDone: true),
       ToDo(
         id: '02',
-        todoText: 'BUrr groc',
+        todoText: 'Buy Groceries',
       ),
       ToDo(
-        id: '02',
-        todoText: 'BUrr groc',
+        id: '03',
+        todoText: 'Check Emails',
       ),
-      ToDo(
-        id: '02',
-        todoText: 'BUrr groc',
-      ),
-      ToDo(
-        id: '02',
-        todoText: 'BUrr groc',
-      ),
+      ToDo(id: '04', todoText: 'Team Meatings', isDone: true),
+      ToDo(id: '05', todoText: 'Dinner Ready', isDone: true),
     ];
   }
 }
