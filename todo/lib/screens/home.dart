@@ -13,7 +13,15 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   final todosList = ToDo.todoList();
+  List<ToDo> _foundToDO = [];
   final _todoController = TextEditingController();
+
+  @override
+  void initState() {
+    _foundToDO = todosList;
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -131,6 +139,10 @@ class _HomeState extends State<Home> {
           todoText: toDo));
     });
     _todoController.clear();
+  }
+
+  void _runFilter(String enteredKeyword) {
+    List<ToDo> results = [];
   }
 
   Widget searchBox() {
