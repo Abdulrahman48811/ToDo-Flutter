@@ -47,7 +47,7 @@ class _HomeState extends State<Home> {
                           ),
                         ),
                       ),
-                      for (ToDo todo in _foundToDO)
+                      for (ToDo todo in _foundToDO.reversed)
                         ToDoItem(
                             todo: todo,
                             onToDoChanged: _handleToDoChange,
